@@ -105,6 +105,7 @@ $ hostinger  google.com  iana  price-low-35000-only
     - iana                       - Tld's from iana.org registrar.
     - hostinger                  - Tld's from hostinger.com registrar.
     - hostinger:category         - Tld's from hostinger.com categories registrar.
+    - country                    - Tld's from country top level domain list.
     - [unparse]/deafult]         - Tld's default from $TLDS list variable.
 
   Filters:
