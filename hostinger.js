@@ -183,8 +183,9 @@ const main = async () => {
 
   if (!args.includes("json")) console.log(`TLDs from ${registrar == 'iana' ? "iana.org" : 'hostinger.co.id'}`)
   let tlds = TLDS
-  if (registrar == 'iana') tlds = [{ tlds: await ianaTlds()}]
-  if (registrar == 'hostinger') tlds = [{ tlds: await req("available-tlds-by-theme", null, "Get tld's from hostinger")}]
+  if (registrar == 'iana') tlds = [{ tlds: await ianaTlds() }]
+  if (registrar == 'country') tlds = [{ tlds: ctlds }]
+  if (registrar == 'hostinger') tlds = [{ tlds: await req("available-tlds-by-theme", null, "Get tld's from hostinger") }]
   if (registrar == 'hostinger:category') tlds = await req("categories", null, "Get tld's from hostinger categories")
 
   const getDomain = async (tlds) => {

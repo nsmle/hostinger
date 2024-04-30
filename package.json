@@ -1,7 +1,7 @@
 {
   "name": "hostinger",
   "description": "A tool for searching domain names on hostinger websites via CLI",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "main": "hostinger.js",
   "license": "GPL-3.0-only",
   "type": "module",
