@@ -1,7 +1,7 @@
 {
   "name": "hostinger",
   "description": "A tool for searching domain names on hostinger websites via CLI",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "hostinger.js",
   "license": "GPL-3.0-only",
   "type": "module",
@@ -17,6 +17,7 @@
     "tool",
     "tools"
   ],
+  "author": "Fiki Pratama <hello@fiki.tech> (https://github.com/nsmle/)",
   "bugs": {
     "url": "https://github.com/nsmle/hostinger/issues"
   },
@@ -25,6 +26,10 @@
     "url": "git+ssh://git@github.com/nsmle/hostinger.git"
   },
   "homepage": "https://hostinger.co.id/domain-murah",
+  "funding": {
+    "type": "individual",
+    "url": "https://github.com/sponsors/nsmle"
+  },
   "engines": {
     "node": ">=8.0.0"
   },

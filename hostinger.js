@@ -22,8 +22,13 @@
  */
 
 import { readFileSync, writeFileSync } from "fs";
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
 
-const MOTD = readFileSync(".MOTD", "utf8")
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+const MOTD = readFileSync(__dirname + "/.MOTD", "utf8")
 
 const req = async (urlPath, data, waitMsg) => {
   let waiting;
@@ -271,9 +276,9 @@ const main = async () => {
 }
 
 const updateReadmeMd = () => {
-  const readMe = readFileSync("README.md", "utf8")
+  const readMe = readFileSync(__dirname + "/README.md", "utf8")
   const readme = readMe.replace(/```motd-usage([^]+?)\n```/gm, "```motd-usage\n" + MOTD + "\n```");
-  writeFileSync("README.md", readme)
+  writeFileSync(__dirname + "/README.md", readme)
   console.log("Motd at README.md updated!")
 }
 
