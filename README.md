@@ -8,15 +8,15 @@
 
 ## Installation
 Install Globally
-- With Yarn
+- With Npm
 
   ```bash
   npm i -g hostinger
   ```
-- With Npm
+- With Yarn
 
   ```bash
-  yarn add -G hostinger
+  yarn global add hostinger
   ```
 
 

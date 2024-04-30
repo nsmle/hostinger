@@ -23,7 +23,7 @@
 
 import { readFileSync, writeFileSync } from "fs";
 
-const MOTD = readFileSync("./.MOTD", "utf8")
+const MOTD = readFileSync(".MOTD", "utf8")
 
 const req = async (urlPath, data, waitMsg) => {
   let waiting;
@@ -271,9 +271,9 @@ const main = async () => {
 }
 
 const updateReadmeMd = () => {
-  const readMe = readFileSync("./README.md", "utf8")
+  const readMe = readFileSync("README.md", "utf8")
   const readme = readMe.replace(/```motd-usage([^]+?)\n```/gm, "```motd-usage\n" + MOTD + "\n```");
-  writeFileSync("./README.md", readme)
+  writeFileSync("README.md", readme)
   console.log("Motd at README.md updated!")
 }
 
