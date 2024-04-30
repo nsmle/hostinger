@@ -1,7 +1,7 @@
 # Hostinger Domain Searcher 
 
 <center>
-  <img src="./banner.png" alt="hostinger">
+  <img src="https://i.postimg.cc/FHcvv1Fq/banner.png" alt="hostinger">
 </center>
 <p align="center">Search domain name at <a href="https://hostinger.co.id/domain-murah" target="_blank">Hostinger</a> registrar, search and make sure your name is available.</p>
 
@@ -66,6 +66,7 @@ $ hostinger  google.com  iana  price-low-35000-only
 
 ### Needs details usage?
 ```motd-usage
+
   - HOSTINGER DOMAIN SEARCHER -
   -------------------------------------------------------------------------------------
 

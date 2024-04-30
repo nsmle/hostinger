@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 // @ts-nocheck
 
 /**
@@ -9,7 +11,7 @@
  * @since 2024-04-30
  * 
  * @example
- * nsmle@cli:~$ hostinger
+ * nsmle@cli:~$ hostinger --help
  *
  * @author Fiki Pratama (nsmle) <fikiproductionofficial@gmail.com>
  * @license GPL-3.0
@@ -18,7 +20,10 @@
  * @see https://github.com/nsmle/
  * @see https://npmjs.com/package/hostinger
  */
-const MOTD = require("fs").readFileSync("./.MOTD", "utf8")
+
+import { readFileSync, writeFileSync } from "fs";
+
+const MOTD = readFileSync("./.MOTD", "utf8")
 
 const req = async (urlPath, data, waitMsg) => {
   let waiting;
@@ -57,7 +62,7 @@ const req = async (urlPath, data, waitMsg) => {
   } 
 
   return result;
-  
+
 }
 
 let printCount = 1;
@@ -131,7 +136,7 @@ const print_domains = async (domains, hideCount) => {
 
       if (!hideCount && filterPrice && filterPrice.only && filterPrice.type == "low" && ((args.includes("usd") | args.includes("xusd")) ? Number(pricePurcase) : d.product.price.purchase) > filterPrice.price) continue;
       if (!hideCount && filterPrice && filterPrice.only && filterPrice.type == "high" && ((args.includes("usd") | args.includes("xusd")) ? Number(pricePurcase) : d.product.price.purchase) < filterPrice.price) continue;
-      
+
       let discount = d.product.price.discount ? `\x1b[3;33m${d.product.price.discount}\x1b[1;30m%\x1b[0m`: "\x1b[1;30m---\x1b[0m"
       let purchase = pricePurcase == priceOld ? `\x1b[3;32m${pricePurcase}\x1b[0m` : `\x1b[3;36m${pricePurcase}\x1b[0m\x1b[1;30m/\x1b[3;31m${priceOld}\x1b[0m` 
       let msg = `${`${hideCount == true ? "✅" : printCount + "."}`.padEnd(5, ' ')}\x1b[0;34m${d.domain_name.replace(d.product.product_slug.replace('domain:',''), `\x1b[1;34m${d.product.product_slug.replace('domain:','')}`)} \x1b[0m${nx(d.domain_name)} `
@@ -147,7 +152,7 @@ const print_domains = async (domains, hideCount) => {
       if (!hideCount && filterPrice && filterPrice.type == "high" && ((args.includes("usd") | args.includes("xusd")) ? Number(pricePurcase) : d.product.price.purchase) < filterPrice.price) msg = `\x1b[1;30m${msg.replaceAll(/\x1b\[(.*?)m/gmi, "\x1b[1;30m")}\x1b[0m`
 
       if (!args.includes("json")) console.log(msg)
-      
+
       if (ittr == domains.length - 3) resolve()
       await delay(100)
       ittr++;
@@ -190,7 +195,7 @@ const main = async () => {
             with_promo: true
           })
           if (res?.error) throw new Error(res?.error?.message) 
-      
+
           await print_domains(res)
           domains = [...domains, ...res]
         } else {
@@ -257,7 +262,7 @@ const main = async () => {
   } else {
     await getDomain(tlds)
   }
-  
+
 
   if (args.includes("json")) {
     await delay(1000)
@@ -266,10 +271,9 @@ const main = async () => {
 }
 
 const updateReadmeMd = () => {
-  const motd = require("fs").readFileSync("./.MOTD", "utf8")
-  const readMe = require("fs").readFileSync("./README.md", "utf8")
-  const readme = readMe.replace(/```motd-usage([^]+?)\n```/gm, "```motd-usage\n" + motd + "\n```");
-  require('fs').writeFileSync("./README.md", readme)
+  const readMe = readFileSync("./README.md", "utf8")
+  const readme = readMe.replace(/```motd-usage([^]+?)\n```/gm, "```motd-usage\n" + MOTD + "\n```");
+  writeFileSync("./README.md", readme)
   console.log("Motd at README.md updated!")
 }
 
