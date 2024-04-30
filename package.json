@@ -1,0 +1,32 @@
+{
+  "name": "hostinger",
+  "description": "A tool for searching domain names on hostinger websites via CLI",
+  "version": "1.0.0",
+  "main": "hostinger.js",
+  "license": "GPL-3.0-only",
+  "keywords": ["domain", "hosting", "hostinger", "tld", "tlds", "sld", "slds", "cli", "tool", "tools"],
+    "bugs": {
+    "url": "https://github.com/nsmle/hostinger/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com/nsmle/hostinger.git"
+  },
+  "homepage": "https://hostinger.co.id/domain-murah",
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "scripts": {
+    "start": "node hostinger",
+    "update:readme": "node hostinger update-readme",
+    "postinstall": "npm run update:readme",
+    "prepack": "npm run update:readme",
+    "prepare": "npm run update:readme",
+    "precommit": "npm run update:readme",
+    "prepublish": "npm run update:readme"
+  },
+  "bin": {
+    "domain": "hostinger.js",
+    "hostinger": "hostinger.js"
+  }
+}

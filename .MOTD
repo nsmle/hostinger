@@ -1,0 +1,56 @@
+
+  - HOSTINGER DOMAIN SEARCHER -
+  -------------------------------------------------------------------------------------
+
+  Search domain name at hosting registrar, search and make sure your name is available.
+
+  $ hostinger  google.com  iana  price-low-35000-only
+    ^-------^  ^--------^  ^--^  ^------------------^
+    |          |           |     |
+    |          |           |     +--> Filter.
+    |          |           |
+    |          |           +--> Registrar.
+    |          |          
+    |          +---> Domain name.
+    |
+    +--> Binary (hostinger/domain).
+
+  To check valid of a domain name in search result
+  Please to check at:
+  - https://hostinger.co.id/domain-murah
+
+  Usage:
+    - hostinger
+    - hostinger -h, --help
+    - hostinger twitter
+    - hostinger twitter iana
+    - hostinger twitter hostinger
+    - hostinger twitter hostinger:category
+    - hostinger twitter hostinger restriction
+    - hostinger twitter hostinger:category price-low-100000 idr
+    - hostinger twitter hostinger:category price-high-30000-only xidr
+    - hostinger twitter hostinger price-high-30000-only restriction idr
+    - hostinger twitter iana price-low-3.4 xusd 
+    - hostinger twitter json | jq
+
+  Registrar:
+    - iana                       - Tld's from iana.org registrar.
+    - hostinger                  - Tld's from hostinger.com registrar.
+    - hostinger:category         - Tld's from hostinger.com categories registrar.
+    - [unparse]/deafult]         - Tld's default from $TLDS list variable.
+
+  Filters:
+    - price-low-[amount]         - Search domain by low price.
+    - price-high-[amount]        - Search domain by high price.
+    - price-low-[amount]-only    - Search domain by low price and hide unfilter result.
+    - price-high-[amount]-only   - Search domain by high price and hide unfilter result.
+    - hide-discount              - Hide discount.
+    - hide-billing               - Hide billing.
+    - idr                        - Currency in Rupiah (amount only).
+    - xidr                       - Currency in Rupiah (amount with symbol).
+    - usd                        - Currency in US Dolar (amount only).
+    - xusd                       - Currency in US Dolar (amount with symbol).
+    - json                       - Return json.
+
+  Notes:
+    - !PRIVACY                   - Domain not include privacy protection.
